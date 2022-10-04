@@ -14,4 +14,3 @@ A continuación, se presentan los roles y las funciones de cada estudiante impli
 | Jhon Robert Mejia             | Development Team Member | Backend Developer  |
 | Ricardo Gutierrez             | Development Team Member | Database Enginer   |
 | Valezka Aguas Vergara         | Development Team Member | Graphical Designer |
-|-------------------------------|-------------------------|--------------------|
