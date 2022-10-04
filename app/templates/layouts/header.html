@@ -1,0 +1,145 @@
+<header>
+    <div class="container">
+        <div class="header-data">
+            <div class="logo">
+                <a href="/" title=""><img src="{{ url_for('static', filename='img/logo.png') }}" alt=""></a>
+            </div><!--logo end-->
+            <div class="search-bar">
+                <form>
+                    <input type="text" name="search" placeholder="Buscar...">
+                    <button type="submit"><i class="la la-search"></i></button>
+                </form>
+            </div><!--search-bar end-->
+            <nav>
+                <ul>
+                    <li>
+                        <a href="/" title="">
+                            <span><i class="fa fa-home" aria-hidden="true"></i></span>
+                            Inicio
+                        </a>
+                    </li>
+                    <li>
+                        <a href="profile/{{ current_user.id }}" title="">
+                            <span><i class="fa fa-users" aria-hidden="true"></i></span>
+                            Perfil
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="" class="not-box-open">
+                            <span><i class='fa fa-envelope'></i></span>
+                            Mensajes
+                        </a>
+                        <div class="notification-box msg">
+                            <div class="nott-list">
+                                <div class="notfication-details">
+                                      <div class="noty-user-img">
+                                          <img src="images/resources/ny-img1.png" alt="">
+                                      </div>
+                                      <div class="notification-info">
+                                          <h3><a href="messages.html" title="">Valezka Aguas</a> </h3>
+                                          <p>Hola</p>
+                                          <span>Hace 2 minutos</span>
+                                      </div><!--notification-info -->
+                                  </div>
+                                  <div class="notfication-details">
+                                      <div class="noty-user-img">
+                                          <img src="images/resources/ny-img2.png" alt="">
+                                      </div>
+                                      <div class="notification-info">
+                                          <h3><a href="messages.html" title="">John Robert Mejia</a></h3>
+                                          <p>Hola Compañero</p>
+                                          <span>Hace 10 minutos</span>
+                                      </div><!--notification-info -->
+                                  </div>
+                                  <div class="notfication-details">
+                                      <div class="noty-user-img">
+                                          <img src="images/resources/ny-img3.png" alt="">
+                                      </div>
+                                      <div class="notification-info">
+                                          <h3><a href="messages.html" title="">Willinton Lopez</a></h3>
+                                          <p>Buenas Tardes</p>
+                                          <span>Hace 1 hora</span>
+                                      </div><!--notification-info -->
+                                  </div>
+                                  <div class="view-all-nots">
+                                      <a href="messages.html" title="">Ver Todos los Mensajes</a>
+                                  </div>
+                            </div><!--nott-list end-->
+                        </div><!--notification-box end-->
+                    </li>
+                    <li>
+                        <a href="#" title="" class="not-box-open">
+                            <span><i class="fa fa-bell" aria-hidden="true"></i><!--<img src="images/icon7.png" alt="">--></span>
+                            Notificaciones
+                        </a>
+                        <div class="notification-box">
+                            <div class="nott-list">
+                                <div class="notfication-details">
+                                      <div class="noty-user-img">
+                                          <img src="images/resources/ny-img1.png" alt="">
+                                      </div>
+                                      <div class="notification-info">
+                                          <h3><a href="#" title="">Jassica William</a> Comentó tu Publicación.</h3>
+                                          <span>Hace 2 minutos</span>
+                                      </div><!--notification-info -->
+                                  </div>
+                                  <div class="notfication-details">
+                                      <div class="noty-user-img">
+                                          <img src="images/resources/ny-img2.png" alt="">
+                                      </div>
+                                      <div class="notification-info">
+                                          <h3><a href="#" title="">Willinton Lopez</a> Comentó tu Publicación.</h3>
+                                          <span>Hace 20 minutos</span>
+                                      </div><!--notification-info -->
+                                  </div>
+                                  <div class="notfication-details">
+                                      <div class="noty-user-img">
+                                          <img src="images/resources/ny-img3.png" alt="">
+                                      </div>
+                                      <div class="notification-info">
+                                          <h3><a href="#" title="">Ricardo Gutierrez</a> Comentó tu Publicación.</h3>
+                                          <span>Hace 1 hora</span>
+                                      </div><!--notification-info -->
+                                  </div>
+                                  <div class="notfication-details">
+                                      <div class="noty-user-img">
+                                          <img src="images/resources/ny-img2.png" alt="">
+                                      </div>
+                                      <div class="notification-info">
+                                          <h3><a href="#" title="">Valezka Aguas</a> Comentó tu Publicación.</h3>
+                                          <span>Hace 3 horas</span>
+                                      </div><!--notification-info -->
+                                  </div>
+                                  <div class="view-all-nots">
+                                      <a href="#" title="">Ver Todas las Notificaciones</a>
+                                  </div>
+                            </div><!--nott-list end-->
+                        </div><!--notification-box end-->
+                    </li>
+                </ul>
+            </nav><!--nav end-->
+            <div class="menu-btn">
+                <a href="#" title=""><i class="fa fa-bars"></i></a>
+            </div><!--menu-btn end-->
+            <div class="user-account">
+                <div class="user-info">
+                    <img src="{{ url_for('static', filename='img/'+current_user.profile_pic) }}" width="30" height="30">
+                    
+                    <a href="#" title="">{{ current_user.name }}</a>
+                    <i class="la la-sort-down"></i>
+                </div>
+                <div class="user-account-settingss">
+                    
+                    
+                    <h3>Configuración</h3>
+                    <ul class="us-links">
+                        <li><a href="" title="">Configuración de la cuenta</a></li>
+                        <li><a href="#" title="">Privacidad</a></li>
+                        <li><a href="#" title="">Terminos y Condiciones</a></li>
+                    </ul>
+                    <h3 class="tc"><a href="{{url_for('auth.logout')}}" title="">Cerrar sesión</a></h3>
+                </div><!--user-account-settingss end-->
+            </div>
+        </div><!--header-data end-->
+    </div>
+</header><!--header end-->

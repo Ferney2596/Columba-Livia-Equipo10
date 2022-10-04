@@ -1,0 +1,31 @@
+
+
+{% block navbar %}
+    <nav class="navbar sticky-top navbar-light" style="background-color: #e3f2fd;">
+        <ul class="navbar-nav mr-auto">
+            <a class="navbar-brand" href="{{ url_for('dashboard.index') }}">Home</a>
+        </ul>
+
+        <ul class="navbar-nav ml-5">
+            {% if current_user.is_anonymous %}
+                <a class="navbar-brand" href="{{ url_for('auth.login') }}">Login</a>
+            {% else %}
+                <a class="navbar-brand" href="{{ url_for('dashboard.explore') }}">Explore</a>
+                <a class="navbar-brand" href="{{ url_for('auth.logout') }}">Logout</a>
+            {% endif %}
+        </ul>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-success" role="alert">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div class="container container-sm">
+        {% block app_content %}{% endblock %}
+    </div>
+{% endblock %}

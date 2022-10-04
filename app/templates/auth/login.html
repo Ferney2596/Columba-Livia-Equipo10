@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Columba Livia</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+
+<!--Adding CSS Layout-->
+	{% include 'layouts/css.html' %}
+<!--End Layout-->
+
+
+</head>
+
+
+<body class="sign-in">
+	
+
+	<div class="wrapper">
+		
+
+		<div class="sign-in-page">
+			<div class="signin-popup">
+				<div class="signin-pop">
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="cmp-info">
+								<div class="cm-logo">
+									<img src="{{ url_for('static', filename='img/cm-logo.png') }}" alt="">
+									<p>Social Columba Livia es una red social, donde los usuarios pueden compartir sus imagenes. 
+									<br><br> La forma sencilla, segura y asequible de almacenar y compartir todas sus imágenes con amigos y familiares.</p>
+								</div><!--cm-logo end-->	
+								<img src="{{ url_for('static', filename='img/cm-main-img.png') }}" alt="">			
+							</div><!--cmp-info end-->
+						</div>
+						<div class="col-lg-6">
+							<div class="login-sec">
+								<ul class="sign-control">
+									<li data-tab="tab-1" class="current"><a href="#" title="">Iniciar Sesión</a></li>				
+									<li data-tab="tab-2"><a href="#" title="">Registrate</a></li>
+								</ul>			
+								<div class="sign_in_sec current" id="tab-1">
+									<h3>Iniciar Sesión</h3>
+									<form action="/login" method="POST">
+										<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+										<div class="row">
+											<div class="col-lg-12 no-pdd">
+												<div class="sn-field">
+													<input type="text" name="email" placeholder="Correo Electronico" required>
+													<i class="la la-user"></i>
+												</div><!--sn-field end-->
+											</div>
+											<div class="col-lg-12 no-pdd">
+												<div class="sn-field">
+													<input type="password" name="password" placeholder="Contraseña" required>
+													<i class="la la-lock"></i>
+												</div>
+											</div>
+											<div class="col-lg-12 no-pdd">
+												<div class="checky-sec">
+													<div class="fgt-sec">
+														<input type="checkbox" name="cc" id="c1">
+														<label for="c1">
+															<span></span>
+														</label>
+														<small>Recuerdame</small>
+													</div><!--fgt-sec end-->
+													<a class="post-jb active" href="#" title="">Olvidé mi contraseña?</a>
+												</div>
+												
+											</div>
+											<div class="col-lg-12 no-pdd">
+												<button type="submit" value="submit">Iniciar Sesión</button>
+											</div>
+										</div>
+									</form>
+									
+								</div><!--sign_in_sec end-->
+								<div class="sign_in_sec" id="tab-2">
+									
+									<div class="dff-tab current" id="tab-3">
+										<form action="/register" method="POST">
+											<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+											<div class="row">
+												<div class="col-lg-12 no-pdd">
+													<h3>Registrate, Es Gratis</h3>
+													<div class="sn-field">
+														<input type="text" name="register_name" placeholder="Nombres" required>
+														<i class="la la-user"></i>
+													</div>
+												</div>
+												<div class="sn-field">
+													<input type="text" name="register_last_name" placeholder="Apellidos" required>
+													<i class="la la-user"></i>
+												</div>
+											
+												<div class="col-lg-12 no-pdd">
+													<div class="sn-field">
+														<input type="text" name="register_email" placeholder="Correo Electronico" required>
+														<i class="la la-envelope"></i>
+													</div>
+												</div>
+												<div class="col-lg-12 no-pdd">
+													<div class="sn-field">
+														<input type="password" name="register_password" placeholder="Contraseña" required>
+														<i class="la la-lock"></i>
+													</div>
+												</div>
+												<div class="col-lg-12 no-pdd">
+													<div class="sn-field">
+														<input type="password" name="register_repeat_password" placeholder="Confima la Contraseña" required>
+														<i class="la la-lock"></i>
+													</div>
+												</div>
+												<div class="col-lg-12 no-pdd">
+													<div class="checky-sec st">
+														<div class="fgt-sec">
+															<input type="checkbox" name="cc" id="c3" required>
+															<label for="c3">
+																<span></span>
+															</label>
+															<small>Acepto los Terminos y Condiciones.</small>
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-12 no-pdd">
+													<button type="submit" value="submit">Registrate</button>
+												</div>
+											</div>
+											
+											
+										</form>
+									</div><!--dff-tab end-->
+									
+													
+												
+											</div>
+										</form>
+									</div><!--dff-tab end-->
+								</div>		
+							</div><!--login-sec end-->
+						</div>
+					</div>		
+				</div><!--signin-pop end-->
+			</div><!--signin-popup end-->
+			<div class="footy-sec">
+				<div class="container">
+					<ul>
+						<li><a href="#" title="">Centro de Ayuda</a></li>
+						<li><a href="#" title="">Politica de Privacidad</a></li>
+						<li><a href="#" title="">Lineamientos de la Comunidad</a></li>
+						<li><a href="#" title="">Politicas de la Comunidad</a></li>
+						<li><a href="#" title="">Politica de Cookies</a></li>
+					</ul>
+					<p><img src="{{ url_for('static', filename='img/copy-icon.png') }}" alt="">Copyright <script>document.write(new Date().getFullYear())</script></p>
+				</div>
+			</div><!--footy-sec end-->
+		</div><!--sign-in-page end-->
+
+
+	</div><!--theme-layout end-->
+
+
+	<!--Adding JS Layout-->
+		{% include 'layouts/js.html' %}
+	<!--End Layout-->
+
+</body>
+</html>

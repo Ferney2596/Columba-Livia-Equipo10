@@ -1,0 +1,49 @@
+<div class="posts-section">
+    <div class="post-bar">
+        <div class="post_topbar">
+            <div class="usy-dt">
+                <img src="{{ url_for('static', filename='img/'+post.user.profile_pic) }}" alt="" width="50px" height="50px">
+                <div class="usy-name">
+                    <h3>{{ post.user.name }}&nbsp;{{ post.user.last_name }}</h3>
+                    <span><img src="{{ url_for('static', filename='img/clock.png') }}" alt="">{{ post.post_date }}</span>
+                </div>
+            </div>
+            {% if post.user_id == current_user.id %}
+            <div class="ed-opts">
+                <a href="#" title="" class="ed-opts-open"><i class="la la-ellipsis-v"></i></a>
+                <ul class="ed-options">
+                    <li><a href="#" title="">Editar Publicación</a></li>
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+        <div class="epi-sec">
+            <ul class="descp">
+                <ul class="job-dt">
+                <li><a href="#" title="">Nuevo Usuario</a></li></ul>
+            </ul>
+            <ul class="bk-links">
+                <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
+                <li><a href="#" title=""><i class="la la-envelope"></i></a></li>
+            </ul>
+        </div>
+        <div class="job_descp">
+            <p>{{ post.description }}</p>
+            <img class="img-fluid" src="{{ post.img }}">	
+            <ul class="skill-tags">
+                
+            </ul>
+        </div>
+        <div class="job-status-bar">
+            <ul class="like-com">
+                <li>
+                    <a href="#"><i class="la la-heart"></i>{{ post.like_amount() }} Me gusta</a>  
+                </li> 
+                <li> 
+                    <a href="#"><i class="la la-comment"></i>0 Comentarios</a>
+                </li>
+            </ul>
+            <a><i class="la la-eye"></i>50 Vistas</a>
+        </div>
+    </div><!--post-bar end-->
+</div>
