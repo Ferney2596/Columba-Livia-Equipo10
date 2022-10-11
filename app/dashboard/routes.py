@@ -35,9 +35,20 @@ def index():
 @login_required 
 def profile(id):
     profile = Profile.query.filter(Profile.id == id).one()
-    return render_template('profile.html', profile=profile)
+    profile_posts = Post.query.filter(User.id == id).all()
+    return render_template('profile.html', profile=profile, posts=profile_posts)
    
+@bp.route('/account-settings')
+@login_required 
+def account_settings():
+    return render_template('account-settings.html')
 
+@bp.route('/search/<search>', methods=["GET", "POST"])
+@login_required
+def search(search):
+    search_query = User.query.filter(User.name.like('%'+search+'%')).all()
+    search_query = User.query.filter(User.last_name.like('%'+search+'%')).all()
+    return render_template('search.html', search_query=search_query)
 
 @bp.route('/explore', methods=["GET", "POST"])
 @login_required

@@ -5,8 +5,8 @@
                 <a href="/" title=""><img src="{{ url_for('static', filename='img/logo.png') }}" alt=""></a>
             </div><!--logo end-->
             <div class="search-bar">
-                <form>
-                    <input type="text" name="search" placeholder="Buscar...">
+                <form action="search/">
+                    <input type="text" name=" " placeholder="Buscar...">
                     <button type="submit"><i class="la la-search"></i></button>
                 </form>
             </div><!--search-bar end-->
@@ -133,7 +133,7 @@
                     
                     <h3>Configuración</h3>
                     <ul class="us-links">
-                        <li><a href="" title="">Configuración de la cuenta</a></li>
+                        <li><a href="{{url_for('dashboard.account_settings')}}" title="">Configuración de la cuenta</a></li>
                         <li><a href="#" title="">Privacidad</a></li>
                         <li><a href="#" title="">Terminos y Condiciones</a></li>
                     </ul>

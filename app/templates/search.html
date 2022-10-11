@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Resultados de La Busqueda - Columba Livia</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+
+<!--Adding CSS Layout-->
+{% include 'layouts/css.html' %}
+<!--End Layout-->
+</head>
+<body>
+    
+
+<!--Adding Header Layout-->
+{% include 'layouts/header.html' %}
+<!--End Layout-->
+	
+    <section class="companies-info">
+			<div class="container">
+				<div class="company-title">
+					<h3>Resultados de la búsqueda</h3>
+				</div><!--company-title end-->
+				<div class="companies-list">
+					<div class="row">
+                        {% for search_query in search_query %}
+						<div class="col-lg-3 col-md-4 col-sm-6 col-12">
+							<div class="company_profile_info">
+								<div class="company-up-info">
+									<img src="{{ url_for('static', filename='img/'+search_query.profile_pic) }}" width="91px" height="91px">
+									<h3>{{ search_query.name }}&nbsp;{{ search_query.last_name }}</h3>
+									<h4>{{ search_query.job }}</h4>
+									<ul>
+										<li><a href="#" title="" class="follow">Seguir</a></li>
+										<li><a href="#" title="" class="message-us"><i class="fa fa-envelope"></i></a></li>
+										<li><a href="#" title="" class="hire-us">Hire</a></li>
+									</ul>
+								</div>
+								<a href="../profile/{{ search_query.id }}" title="" class="view-more-pro">Ver Perfil</a>
+							</div></div><!--company_profile_info end-->
+                            {% endfor %}
+						
+						</div>
+						
+							
+						</div>
+					</div>
+				</div><!--companies-list end-->
+				
+			</div>
+		</section><!--companies-info end-->
+
+
+	</div><!--theme-layout end-->
+
+<!--Adding JS Layout-->
+{% include 'layouts/js.html' %}
+<!--End Layout-->
+
+</body>
+</html>

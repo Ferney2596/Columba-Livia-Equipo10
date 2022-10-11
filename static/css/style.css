@@ -5424,3 +5424,10 @@ a:hover {
     border-radius: 10px;
     border: 2px solid #ffffff;
   }
+
+#upload_link{
+    text-decoration:none;
+}
+#upload{
+    display:none
+}

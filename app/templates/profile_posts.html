@@ -2,7 +2,7 @@
     <div class="post-bar">
         <div class="post_topbar">
             <div class="usy-dt">
-                <img src="{{ url_for('static', filename='img/'+post.user.profile_pic) }}" alt="" width="50px" height="50px">
+                <img src="{{ url_for('static', filename='img/'+profile_posts.profile_pic) }}" alt="" width="50px" height="50px">
                 <div class="usy-name">
                     <h3>{{ post.user.name }}&nbsp;{{ post.user.last_name }}</h3>
                     <span><img src="{{ url_for('static', filename='img/clock.png') }}" alt="">{{ post.post_date }}</span>
@@ -21,6 +21,10 @@
             <ul class="descp">
                 <ul class="job-dt">
                 <li><a href="#" title="">Nuevo Usuario</a></li></ul>
+            </ul>
+            <ul class="bk-links">
+                <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
+                <li><a href="#" title=""><i class="la la-envelope"></i></a></li>
             </ul>
         </div>
         <div class="job_descp">

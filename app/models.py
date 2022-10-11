@@ -6,6 +6,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 
 class User(UserMixin, db.Model):
+    __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(64), index=True, unique=True)
     password_hash = db.Column(db.String(200), index=True, unique=True)
@@ -20,9 +21,6 @@ class User(UserMixin, db.Model):
     country = db.Column(db.String(120), index=True, unique=True)
     user_desc = db.Column(db.String(120), index=True, unique=True)
     posts = db.relationship('Post', backref="author", lazy="dynamic")
-
-    def set_password(self, password: str):
-        self.password_hash = generate_password_hash(password)
 
     def check_password(self, password: str):
         return check_password_hash(self.password_hash, password)
@@ -54,7 +52,7 @@ class Post(db.Model):
     description = db.Column(db.String(512), index=True)
     img = db.Column(db.String(256))
     likes = db.relationship('PostLikes', backref="liked", lazy="dynamic")
-    user = db.relationship('User', overlaps="author,posts")
+    user = db.relationship('User', overlaps="posts")
     post_date = db.Column()
 
     def like_amount(self):
@@ -72,3 +70,16 @@ class PostLikes(db.Model):
         return self.user_id == id
 
 
+class Register_user(db.Model):
+    __tablename__ = 'user'
+    __table_args__ = {'extend_existing': True}
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(64), index=True, unique=True)
+    password_hash = db.Column(db.String(200), index=True, unique=True)
+    name = db.Column(db.String(64), index=True, unique=True)
+    last_name = db.Column(db.String(120), index=True, unique=True)
+    profile_pic = db.Column(db.String(120), index=True, unique=True)
+    profile_banner = db.Column(db.String(120), index=True, unique=True)
+    
+    def set_password(self, password: str):
+        self.password_hash = generate_password_hash(password)

@@ -291,3 +291,9 @@ $(window).on("load", function() {
 });
 
 
+$(function(){
+    $("#upload_img").on('click', function(e){
+        e.preventDefault();
+        $("#upload:hidden").trigger('click');
+    });
+    });

@@ -27,6 +27,10 @@
 
 		<section class="cover-sec">
 			<img src="{{ url_for('static', filename='img/'+profile.profile_banner) }}" width="1600px" height="400px">
+			{% if profile.id == current_user.id %}
+			<input id="upload" type="file"/>
+			<a href="" id="upload_img"><i class="fa fa-camera"></i> Cambiar Portada</a>
+			{% endif %}
 		</section>
 
 
@@ -40,6 +44,10 @@
 									<div class="user_profile">
 										<div class="user-pro-img">
 											<img src="{{ url_for('static', filename='img/'+profile.profile_pic) }}" width="170px" height="170px">
+											{% if profile.id == current_user.id %}
+											<input id="upload" type="file"/>
+											<a href="" id="upload_img"><i class="fa fa-camera"></i> </a>
+											{% endif %}
 										</div><!--user-pro-img end-->
 										<div class="user_pro_status">
 											<ul class="flw-hr">
@@ -135,170 +143,12 @@
 										</div><!-- tab-feed end-->
 									</div><!--user-tab-sec end-->
 									<div class="product-feed-tab current" id="feed-dd">
-										<div class="posts-section">
-											<div class="post-bar">
-												<div class="post_topbar">
-													<div class="usy-dt">
-														<img src="static/img/user.png" alt="" width="50px" height="50px">
-														<div class="usy-name">
-															<h3>Ferney Moreno</h3>
-															<span><img src="{{ url_for('static', filename='img/clock.png') }}" alt="">3 min ago</span>
-														</div>
-													</div>
-													<div class="ed-opts">
-														<a href="#" title="" class="ed-opts-open"><i class="la la-ellipsis-v"></i></a>
-														<ul class="ed-options">
-															<li><a href="#" title="">Editar Publicación</a></li>
-														</ul>
-													</div>
-												</div>
-												<div class="epi-sec">
-													<ul class="descp">
-														<ul class="job-dt">
-														<li><a href="#" title="">Nuevo Usuario</a></li></ul>
-													</ul>
-													<ul class="bk-links">
-														<li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
-														<li><a href="#" title=""><i class="la la-envelope"></i></a></li>
-													</ul>
-												</div>
-												<div class="job_descp">
-													<p>Espacio</p>
-													<img class="img-fluid" src="{{ url_for('static', filename='img/test/img_post.jpg') }}">	
-													<ul class="skill-tags">
-														
-													</ul>
-												</div>
-												<div class="job-status-bar">
-													<ul class="like-com">
-														<li>
-															<a href="#"><i class="la la-heart"></i> Like</a>
-															<img src="{{ url_for('static', filename='img/liked-img.png') }}" alt="">
-															<span>25</span>
-														</li> 
-														<li><a href="#" title="" class="com"><img src="images/com.png" alt=""> 15 Comentarios</a></li>
-													</ul>
-													<a><i class="la la-eye"></i>50 Vistas</a>
-												</div>
-											</div><!--post-bar end-->
+										{% for post in posts %}
+												{% include 'home_posts.html' %}
+											{% endfor %}
 											
 											
-											<div class="posty">
-												<div class="post-bar no-margin">
-													<div class="post_topbar">
-														<div class="usy-dt">
-															<img src="{{ url_for('static', filename='img/test/foto_ferney50x50.jpg') }}" alt="">
-															<div class="usy-name">
-																<h3>Ferney Moreno</h3>
-																<span><img src="{{ url_for('static', filename='img/clock.png') }}" alt="">3 min ago</span>
-															</div>
-														</div>
-														<div class="ed-opts">
-															<a href="#" title="" class="ed-opts-open"><i class="la la-ellipsis-v"></i></a>
-															<ul class="ed-options">
-																<li><a href="#" title="">Editar Publicación
-																</a></li>
-															</ul>
-														</div>
-													</div>
-													<div class="epi-sec">
-														<ul class="descp">
-															<ul class="job-dt">
-																<li><a href="#" title="">Nuevo Usuario</a></li>
-															</ul>
-														</ul>
-														<ul class="bk-links">
-															<li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
-															<li><a href="#" title=""><i class="la la-envelope"></i></a></li>
-														</ul>
-													</div>
-													<div class="job_descp">
-														
-														<p>Espacio<a href="#" title=""></a></p>
-														<img class="img-fluid" src="{{ url_for('static', filename='img/test/img_post.jpg') }}">
-													</div>
-													<div class="job-status-bar">
-														<ul class="like-com">
-															<li>
-																<a href="#"><i class="la la-heart"></i> Like</a>
-																<img src="{{ url_for('static', filename='img/liked-img.png') }}" alt="">
-																<span>25</span>
-															</li> 
-															<li><a href="#" title="" class="com"><img src="{{ url_for('static', filename='img/com.png') }}" alt=""> 15 Comentarios</a></li>
-														</ul>
-														<a><i class="la la-eye"></i>50 Vistas</a>
-													</div>
-												</div><!--post-bar end-->
-												<div class="comment-section">
-													<div class="plus-ic">
-														<i class="la la-plus"></i>
-													</div>
-													<div class="comment-sec">
-														<ul>
-															<li>
-																<div class="comment-list">
-																	<div class="bg-img">
-																		<img src="http://via.placeholder.com/40x40" alt="">
-																	</div>
-																	<div class="comment">
-																		<h3>John Doe</h3>
-																		<span><img src="{{ url_for('static', filename='img/clock.png') }}" alt=""> 3 min ago</span>
-																		<p>Lorem ipsum dolor sit amet, </p>
-																		<a href="#" title="" class="active"><i class="fa fa-reply-all"></i>Reply</a>
-																	</div>
-																</div><!--comment-list end-->
-																<ul>
-																	<li>
-																		<div class="comment-list">
-																			<div class="bg-img">
-																				<img src="http://via.placeholder.com/40x40" alt="">
-																			</div>
-																			<div class="comment">
-																				<h3>John Doe</h3>
-																				<span><img src="{{ url_for('static', filename='img/clock.png') }}" alt=""> 3 min ago</span>
-																				<p>Hi John </p>
-																				<a href="#" title=""><i class="fa fa-reply-all"></i>Reply</a>
-																			</div>
-																		</div><!--comment-list end-->
-																	</li>
-																</ul>
-															</li>
-															<li>
-																<div class="comment-list">
-																	<div class="bg-img">
-																		<img src="http://via.placeholder.com/40x40" alt="">
-																	</div>
-																	<div class="comment">
-																		<h3>John Doe</h3>
-																		<span><img src="{{ url_for('static', filename='img/clock.png') }}" alt=""> 3 min ago</span>
-																		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam luctus hendrerit metus, ut ullamcorper quam finibus at.</p>
-																		<a href="#" title=""><i class="fa fa-reply-all"></i>Reply</a>
-																	</div>
-																</div><!--comment-list end-->
-															</li>
-														</ul>
-													</div><!--comment-sec end-->
-													<div class="post-comment">
-														<div class="cm_img">
-															<img src="http://via.placeholder.com/40x40" alt="">
-														</div>
-														<div class="comment_box">
-															<form>
-																<input type="text" placeholder="Publica un Comentario...">
-																<button type="submit">Enviar</button>
-															</form>
-														</div>
-													</div><!--post-comment end-->
-												</div><!--comment-section end-->
-											</div><!--posty end-->
-											<div class="process-comm">
-												<div class="spinner">
-													<div class="bounce1"></div>
-													<div class="bounce2"></div>
-													<div class="bounce3"></div>
-												</div>
-											</div><!--process-comm end-->
-										</div><!--posts-section end-->
+											
 									</div><!--product-feed-tab end-->
 									<div class="product-feed-tab" id="info-dd">
 										<div class="user-profile-ov">

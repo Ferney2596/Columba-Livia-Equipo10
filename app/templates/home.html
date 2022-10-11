@@ -118,7 +118,7 @@
 											<h3>Sugerencias</h3>
 										</div><!--sd-title end-->
 										<div class="suggestions-list">
-											{% for user in user_suggests %}
+											{% for user in user_suggests  %}
 											<a href="/"><div class="suggestion-usd">
 												<img src="{{ url_for('static', filename='img/'+user.profile_pic) }}" width="35px" height="35px">
 												<div class="sgt-text">
