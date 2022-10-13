@@ -12,6 +12,8 @@ migrate = Migrate()
 login = LoginManager()
 csrf = CSRFProtect()
 
+
+
 def create_app(config=Config):
     app = Flask(__name__, static_folder='../static')
     app.config.from_object(config)
@@ -32,4 +34,3 @@ def create_app(config=Config):
     app.register_blueprint(dashboard_bp, url_prefix='')
 
     return app
-    
